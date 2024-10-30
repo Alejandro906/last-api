@@ -1,0 +1,10 @@
+{
+  "name": "pet-shop-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:users": "cd users && npm start",
+    "start:products": "cd products && npm start",
+    "start:categories": "cd categories && npm start"
+  }
+}

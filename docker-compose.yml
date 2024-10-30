@@ -1,0 +1,35 @@
+version: '3'
+services:
+  users:
+    build: ./users
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_URL=mongodb+srv://admin1:admin1@cluster0.gil6b.mongodb.net/mascotas?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=your_jwt_secret
+    networks:
+      - app-network
+
+  products:
+    build: ./products
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGO_URL=mongodb+srv://admin1:admin1@cluster0.gil6b.mongodb.net/mascotas?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=your_jwt_secret
+    networks:
+      - app-network
+
+  categories:
+    build: ./categories
+    ports:
+      - "3003:3003"
+    environment:
+      - MONGO_URL=mongodb+srv://admin1:admin1@cluster0.gil6b.mongodb.net/mascotas?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_SECRET=your_jwt_secret
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
